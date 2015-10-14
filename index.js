@@ -3,19 +3,23 @@
 var dict = [1,2,3,4,5,6,7]
 
 function binSearch(dict, hunt) {
+
   var len = dict.length
   var half = Math.floor(len/2)
 
   if (len == 1) {
     if (dict[0] == hunt)    {
-      console.log("Found it!")
+      console.log("Found it")
+      return hunt
     }else {
+      return null
       console.log("Nope");
 
       }
   }else {
     if (dict[half] === hunt) {
       console.log("Found it")
+      return hunt
     } else if (dict[half] < hunt) {
       console.log("Not yet")
       binSearch(dict.slice(half,len), hunt)
@@ -25,3 +29,5 @@ function binSearch(dict, hunt) {
     }
   }
 }
+
+exports = module.exports = binSearch
