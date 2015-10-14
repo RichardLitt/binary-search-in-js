@@ -14,4 +14,4 @@ var cli = meow({
   ]
 })
 
-binSearch([1,2,3,4,5,6,7], cli.input[1])
+binSearch([1, 2, 3, 4, 5, 6, 7], cli.input[0])

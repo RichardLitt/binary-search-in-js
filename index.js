@@ -1,31 +1,22 @@
-// Assume this is a sort, non-repeating dictionary of values
-// This will parse the string, and search for a character
-var dict = [1,2,3,4,5,6,7]
+function binSearch (array, hunt) {
+  var len = array.length
+  var half = Math.floor(len / 2)
 
-function binSearch(dict, hunt) {
-
-  var len = dict.length
-  var half = Math.floor(len/2)
-
-  if (len == 1) {
-    if (dict[0] == hunt)    {
-      console.log("Found it")
+  if (len === 1) {
+    if (array[0] === hunt) {
       return hunt
-    }else {
-      return null
-      console.log("Nope");
-
-      }
-  }else {
-    if (dict[half] === hunt) {
-      console.log("Found it")
-      return hunt
-    } else if (dict[half] < hunt) {
-      console.log("Not yet")
-      binSearch(dict.slice(half,len), hunt)
     } else {
-      console.log("Not yet")
-      binSearch(dict.slice(0,half), hunt)
+      return null
+    }
+  } else if (len === 0) {
+    return null
+  } else {
+    if (array[half] === hunt) {
+      return hunt
+    } else if (array[half] < hunt) {
+      return binSearch(array.slice(half, len), hunt)
+    } else {
+      return binSearch(array.slice(0, half), hunt)
     }
   }
 }
